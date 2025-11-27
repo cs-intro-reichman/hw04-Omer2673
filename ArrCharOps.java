@@ -197,25 +197,21 @@ public class ArrCharOps {
         int len2 = str2.length();
         int min = Math.min(len1, len2);
 
-        for(int i = 0;i<min;i++){
-            if (str1.charAt(i)<str2.charAt(i)) {
-                return -1;
-
-                
+        for (int i = 0 ; i < min ; i++){
+            if (str1.charAt(i) < str2.charAt(i)) {
+                return -1;               
             }
-            else if(str1.charAt(i) > str2.charAt(i)){
+            else if (str1.charAt(i) > str2.charAt(i)){
                 return 1;
             } 
         }
-        if (len1<len2) {
+        if (len1 < len2) {
             return -1;
             
         }
-        else if (len1==len2){
+        else if (len1 == len2){
             return 0;
-        }
-
-        
+        }        
         return -2;
     }
 }
