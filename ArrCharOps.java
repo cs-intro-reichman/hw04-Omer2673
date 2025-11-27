@@ -193,25 +193,29 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        if (str1 == null || str2 == null) return -2; // שמירת טיפול ה-null שלך
-
         int len1 = str1.length();
         int len2 = str2.length();
-        int minLength = Math.min(len1, len2);
+        int min = Math.min(len1, len2);
 
-        for (int i = 0; i < minLength; i++) {
-            char c1 = str1.charAt(i);
-            char c2 = str2.charAt(i);
+        for(int i = 0;i<min;i++){
+            if (str1.charAt(i)<str2.charAt(i)) {
+                return -1;
 
-            if (c1 != c2) {
-            // החזרת ההפרש בערכי ה-ASCII
-                return c1 - c2;
+                
             }
+            else if(str1.charAt(i) > str2.charAt(i)){
+                return 1;
+            } 
+        }
+        if (len1<len2) {
+            return -1;
+            
+        }
+        else if (len1==len2){
+            return 0;
         }
 
-    // אם הגענו לכאן, אחת המחרוזות היא תחילית של השנייה, או שהן שוות.
-    // החזרת ההפרש באורכים.
-        return len1 - len2;
+        
+        return -2;
     }
-
 }
