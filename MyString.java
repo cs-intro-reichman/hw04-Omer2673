@@ -26,10 +26,19 @@ public class MyString {
     public static boolean contains(String str1, String str2) {
         
         for(int i = 0;i<str1.length();i++){
+            boolean flag = true;
             for(int j = 0;j<str2.length();j++){
-                if (condition) {
+                if (str1.charAt(i+j)!=str2.charAt(j)) {
+
+                    flag=false;
+                    break;
+                    
                     
                 }
+            }
+            if (flag) {
+                return true;
+                
             }
         }
         return false;
