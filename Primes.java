@@ -47,7 +47,7 @@ public class Primes {
             if (primes[i]) count++;
         }
 
-        System.out.println("There are " + count +
-        " primes بين 2 and " + n + " (" + count + "% are primes)");
+        System.out.println("There are " + count + " primes between 2 and " + n + " (" + count + "% are primes)");
+
     }
 }

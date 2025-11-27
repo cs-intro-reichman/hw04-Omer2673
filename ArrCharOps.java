@@ -193,28 +193,24 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-    if (str1 == null || str2 == null)
-        return -2; // error case
+        if (str1 == null || str2 == null) return -2;
 
-    int i = 0;
+        int i = 0;
 
-    while (i < str1.length() && i < str2.length()) {
-        char c1 = str1.charAt(i);
-        char c2 = str2.charAt(i);
+        while (i < str1.length() && i < str2.length()) {
+            char c1 = str1.charAt(i);
+            char c2 = str2.charAt(i);
 
-        if (c1 != c2) {
-            if (c1 < c2)
-                return -1;
-            return 1;
+            if (c1 != c2) {
+                if (c1 < c2) return -1;
+                return 1;
+            }
+            i++;
         }
 
-        i++;
+        if (str1.length() < str2.length()) return -1;
+        if (str1.length() > str2.length()) return 1;
+        return 0;
     }
-
-    // 👇 טיפול באורך — רק פעם אחת, מסודר:
-    if (str1.length() < str2.length()) return -1;
-    if (str1.length() > str2.length()) return 1;
-    return 0;
-}
 
 }
