@@ -192,15 +192,11 @@ public class ArrCharOps {
      *         lexicographically greater than str2.
      *         return -2 if there is an error with the input.
      */
+    // דוגמה לתיקון: הסרת toLowerCase
     public static int compareTo(String str1, String str2) {
         if (str1 == null || str2 == null) return -2;
 
-    // נוודא lowercase להשוואה תקינה בין A ל-a
-        str1 = str1.toLowerCase();
-        str2 = str2.toLowerCase();
-
         int i = 0;
-
         while (i < str1.length() && i < str2.length()) {
             char c1 = str1.charAt(i);
             char c2 = str2.charAt(i);
@@ -212,10 +208,8 @@ public class ArrCharOps {
             i++;
         }
 
-    // 👇 זה החלק שהיה חסר / לא נכון קודם – יושב *אחרי* ה-while:
-        if (i < str2.length()) return -1; // str1 נגמרה ראשונה אבל יש עוד ב-str2
-        if (i < str1.length()) return 1;  // str2 נגמרה ראשונה אבל יש עוד ב-str1
-
+        if (str1.length() < str2.length()) return -1;
+        if (str1.length() > str2.length()) return 1;
         return 0;
     }
 }
