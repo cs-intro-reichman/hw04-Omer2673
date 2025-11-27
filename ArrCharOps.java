@@ -192,24 +192,26 @@ public class ArrCharOps {
      *         lexicographically greater than str2.
      *         return -2 if there is an error with the input.
      */
-    // דוגמה לתיקון: הסרת toLowerCase
     public static int compareTo(String str1, String str2) {
-        if (str1 == null || str2 == null) return -2;
+        if (str1 == null || str2 == null) return -2; // שמירת טיפול ה-null שלך
 
-        int i = 0;
-        while (i < str1.length() && i < str2.length()) {
+        int len1 = str1.length();
+        int len2 = str2.length();
+        int minLength = Math.min(len1, len2);
+
+        for (int i = 0; i < minLength; i++) {
             char c1 = str1.charAt(i);
             char c2 = str2.charAt(i);
 
             if (c1 != c2) {
-                if (c1 < c2) return -1;
-                return 1;
+            // החזרת ההפרש בערכי ה-ASCII
+                return c1 - c2;
             }
-            i++;
         }
 
-        if (str1.length() < str2.length()) return -1;
-        if (str1.length() > str2.length()) return 1;
-        return 0;
+    // אם הגענו לכאן, אחת המחרוזות היא תחילית של השנייה, או שהן שוות.
+    // החזרת ההפרש באורכים.
+        return len1 - len2;
     }
+
 }
