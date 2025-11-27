@@ -198,19 +198,18 @@ public class ArrCharOps {
         int i = 0;
 
         while (i < str1.length() && i < str2.length()) {
-            char c1 = str1.charAt(i);
-            char c2 = str2.charAt(i);
-
-            if (c1 != c2) {
-                if (c1 < c2) return -1;
+            if (str1.charAt(i) != str2.charAt(i)) {
+                if (str1.charAt(i) < str2.charAt(i)) return -1;
                 return 1;
             }
             i++;
         }
 
+    // 👇 זה החלק שהיה חסר לך – תוסיף **בדיוק כאן אחרי ה-while**:
         if (str1.length() < str2.length()) return -1;
         if (str1.length() > str2.length()) return 1;
         return 0;
     }
+
 
 }
