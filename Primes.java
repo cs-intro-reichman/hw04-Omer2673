@@ -37,17 +37,22 @@ public class Primes {
     }
 
     public static void main(String[] args) {
-        int n = Integer.parseInt(args[0]);
-        boolean[] primes = sieve(n);
-        System.out.println("Prime numbers up to " + n + ":");
-        printnums(primes);
+    int n = Integer.parseInt(args[0]);
+    boolean[] primes = sieve(n);
+    System.out.println("Prime numbers up to " + n + ":");
+    printnums(primes);
 
-        int count = 0;
-        for (int i = 2; i <= n; i++) {
-            if (primes[i]) count++;
-        }
-
-        System.out.println("There are " + count + " primes between 2 and " + n + " (" + count + "% are primes)");
-
+    int count = 0;
+    for (int i = 2; i <= n; i++) {
+        if (primes[i]) count++;
     }
+
+    // --- האזור שתוקן ---
+    double percentage = ((double) count / n) * 100;
+    int roundedPercentage = (int) Math.round(percentage); 
+    
+    System.out.println("There are " + count + " primes between 2 and " + n + " (" + roundedPercentage + "% are primes)");
+    // --- סוף האזור שתוקן ---
+}
+
 }
